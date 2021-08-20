@@ -1,0 +1,128 @@
+<html>
+<head>
+<LINK rel="stylesheet" href="catalog.css" type="text/css">
+
+<meta http-equiv="Content-Language" content="en-us">
+<title>Color Codes</title>
+<LINK rel="stylesheet" href="palettes.css" type="text/css">
+<script language="javascript" src="palettes.js"></script>
+<script language="JavaScript">
+
+function TK_markColor (m, n)
+{
+	var box = document.getElementById ("P" + m + "_" + n);
+
+	document.TK_Palettes[m].markSelected (box);
+}
+
+function TK_unmarkColor (m, n)
+{
+	var box = document.getElementById ("P" + m + "_" + n);
+
+	document.TK_Palettes[m].unmarkSelected (box);
+}
+
+function TK_selectColor (m, n)
+{
+	if (document.TK_TargetColors[m] == n)
+		return;
+
+	if (document.TK_TargetColors[m] >= 0)
+		TK_unmarkColor (m, document.TK_TargetColors[m]);
+
+	TK_markColor (m, n);
+
+	document.TK_TargetColors[m] = n;
+
+	var codeDiv = document.getElementById ("code" + m);
+	codeDiv.innerHTML = "<B>" + document.TK_Palettes[m].colorName (Number (document.TK_TargetColors[m])) + "</B>";
+
+	codeDiv = document.getElementById ("fullcode");
+	if (!codeDiv)
+		return;
+
+	codeDiv.innerText = '';
+	for (var iter = 0; iter < 7; iter++)
+	{
+		codeDiv.innerText += document.TK_Palettes[iter].colorName (Number (document.TK_TargetColors[iter]));
+	}
+}
+
+document.TK_Palettes = [ new TK_DressRPalette, new TK_ClothPalette, new TK_TwoBPalette, new TK_Leather12Palette, new TK_Leather24Palette, new TK_LongFJPalette, new TK_MetalPalette ];
+document.TK_TargetColors = [ 1, 1, 1, 1, 1, 1, 1 ];
+
+function TK_drawPalettes()
+{
+	var iter = 0;
+	var width = 0;
+	var maxheight = 0;
+
+	document.write ("<TABLE CELLSPACING=10 CELLSPACING=0><TR>");
+
+	document.write ("<TD ALIGN=center><DIV class=colorlabel>Dress Robe</DIV>");
+	document.TK_Palettes[0].drawPalette (0);
+	document.write ("<DIV class=colorlabel ID='code0'></DIV></TD>");
+
+	document.write ("<TD ALIGN=center><DIV class=colorlabel>Cloth</DIV>");
+	document.TK_Palettes[1].drawPalette (1);
+	document.write ("<DIV class=colorlabel ID='code1'></DIV></TD>");
+
+	document.write ("<TD ALIGN=center><DIV class=colorlabel>Two-Strap Bandolier</DIV>");
+	document.TK_Palettes[2].drawPalette (2);
+	document.write ("<DIV class=colorlabel ID='code2'></DIV></TD>");
+
+	document.write ("</TR>\n<TR>");
+
+	document.write ("<TD ALIGN=center><DIV class=colorlabel>Leather</DIV>");
+	document.TK_Palettes[3].drawPalette (3);
+	document.write ("<DIV class=colorlabel ID='code3'></DIV></TD>");
+
+	document.write ("<TD ALIGN=center><DIV class=colorlabel>Extended Leather</DIV>");
+	document.TK_Palettes[4].drawPalette (4);
+	document.write ("<DIV class=colorlabel ID='code4'></DIV></TD>");
+
+	document.write ("<TD ALIGN=center><DIV class=colorlabel>Long Formal Jacket</DIV>");
+	document.TK_Palettes[5].drawPalette (5);
+	document.write ("<DIV class=colorlabel ID='code5'></DIV></TD>");
+
+	document.write ("</TR>\n<TR>");
+
+	document.write ("<TD ALIGN=center colspan=3><DIV class=colorlabel>Metals and Gemstones</DIV>");
+	document.TK_Palettes[6].drawPalette (6);
+	document.write ("<DIV class=colorlabel ID='code6'></DIV></TD>");
+
+	document.write ("</TR></TABLE>");
+}
+</SCRIPT>
+
+<body>
+
+<P>If you are looking for help on selecting a color, this isn't the place.  You will want to read <a href="whatcolorsshouldiwear.html">What colors should I wear?</a>.  This information is about the color palettes available to tailors, and how the color codes relate to them.  This is mostly of use to other tailors who wish to adopt the same color coding system, but others who are curious will not feel totally lost.</P>
+
+<H2>Color Palettes</H2>
+
+<P>Everything with customizable colors that tailors can make comes in one of 7 palettes.  8 if you count the bugged palette that can be any color as long as it's white.  Most items use one of 4 palettes, what I call the Cloth, Leather, Extended Leather, and Metal palettes.  The Two-Strap Bandolier, Dress Robe, and Long Formal Jacket all have their own palettes used by nothing else.</P>
+
+<SCRIPT language="JavaScript"><!--
+TK_drawPalettes ();
+TK_selectColor (0, 0);
+TK_selectColor (1, 0);
+TK_selectColor (2, 0);
+TK_selectColor (3, 0);
+TK_selectColor (4, 0);
+TK_selectColor (5, 0);
+TK_selectColor (6, 0);
+// --></SCRIPT>
+
+<H2>Color Codes</H2>
+
+<P>The color codes used throughout this website are intended to be easily translated into the color they represent.  The general rule is every code consists of a number and a letter.  The number denotes which color group, counting across and then down.  The letter, then, is the intensity of the color, <I>A</I> being the darkest, throguh <I>D</I>, <I>G</I>, <I>H</I>, or <I>P</I> as the lightest or most washed out shade.  In most coases, this means the letters start at the end and go down.  So the cloth palette the first color is <I>G</I>.  The smaller leather palette is the odd one out here.  Every other group, the darkest color is first.  There are no letters used for the Long Formal Jacket.  It only has 16 colors, count em out yourself.</P>
+
+<P>The only part left to explain is the cloth palette.  It uses two letters instead of just one.  If you examine the cloth palette, you'll notice a trend repeated several times.  It's easiest to see at the end, but if you follow it back, it exists the entire time.  The colors come in a group of red, then a group of orange, a group of yellow, a group of green, a group of blue and a group of purple.  In this case, instead of referring to the individual color groups, the number refers to the larger groups of 6 colors.  Otherwise, the numbers would have had to go up to 36.  It goes without saying that 7 is a lot easier to count to than 36.  The last row of 3 colors are the 7th set.  The first leter, then, refers to which color.  R for red, O for orange, Y for yellow, G for green, B for blue and P for purple.  The letter still refers to the shade within that group.  Since the last row only has 3 colors, there is no second leter, just 7P, 7R or 7O.</P>
+
+<P>Confused?  No problem.  You can practice on those palettes above.  Click on any color, and it's code will be displayed below the palette.  Go ahead, try a few.</P>
+
+<H2>Codes for multiple colors</H2>
+
+<P>If an article of clothes has more than one palette, the codes are just put together in the order of the palettes.  So for example, if there a two-strap long reinforced formal dress uniform robe that used all the palettes above in order, the code for all the currently selected colors would be <B><I><span id=fullcode>1P1RG1H1D1D1</span></I></B>.</P>
+</body></html>

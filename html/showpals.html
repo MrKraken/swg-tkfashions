@@ -1,0 +1,30 @@
+<html><head>
+<SCRIPT language=JavaScript src=palettes.js></SCRIPT>
+<script language="javascript"><!--
+
+function showpal(pal)
+{
+	for (var n = 0; n < pal.ColorCount; n++)
+	{
+		document.write ("INSERT INTO tk_tailorpalettes VALUES (" + n + ",'" + pal.PalType + "','" + pal.ColorTable [n] + "');<br>\n");
+	}
+}
+// --></script>
+</head><body><script language="javascript"><!--
+
+showpal(new TK_ClothPalette());
+showpal(new TK_DressRPalette());
+showpal(new TK_Leather12Palette());
+showpal(new TK_Leather24Palette());
+showpal(new TK_LongFJPalette());
+showpal(new TK_MetalPalette());
+showpal(new TK_TwoBPalette());
+showpal(new TK_FeatherPalette());
+showpal(new TK_Pet1Palette());
+showpal(new TK_Pet2Palette());
+showpal(new TK_Pet3Palette());
+showpal(new TK_Pet4Palette());
+showpal(new TK_Pet5Palette());
+showpal(new TK_BrightsPalette());
+// --></script>
+</body></html>

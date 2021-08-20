@@ -1,0 +1,76 @@
+BODY, HTML {
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+BODY {
+	background-image: url('gen_background.jpg');
+}
+
+DIV.title, DIV.colorlabel {
+	text-align: center;
+	height: 20px;
+	overflow: hidden;
+}
+
+DIV.title {
+	font-size: 14pt;
+}
+
+.Cloth, .DressR, .TwoB, .Metal, .MCloth, .MDressR, .MTwoB, .MMetal {
+	width: 12px;
+	height: 12px;
+	overflow: hidden;
+}
+
+.Leather24, .MLeather24 {
+	width: 18px;
+	height: 18px;
+	overflow: hidden;
+}
+
+.Leather12, .MLeather12, .Brights, .MBrights, .Feather, .MFeather, .Pet1, .MPet1, .Pet2, .MPet2, .Pet3, .MPet3, .Pet4, .MPet4, .Pet5, .MPet5 {
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+}
+
+.LongFJ, .MLongFJ {
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+}
+
+.MCloth, .MDressR, .MTwoB, .MMetal, .MLeather24, .MLeather12, .MBrights, .MLongFJ, .MFeather, .MPet1, .MPet2, .MPet3, .MPet4, .MPet5 {
+	border: 2px #e0e080 inset;
+}
+
+/* IE includes the border in the width, everyone else does not
+ * IE also doesn't understand the following CSS descriptor, everyone else
+ * does.  So use it to tell everyone else what to display.
+ */
+DIV+TABLE .MCloth, DIV+TABLE .MDressR, DIV+TABLE .MTwoB, DIV+TABLE .MMetal {
+	width: 8px;
+	height: 8px;
+}
+
+DIV+TABLE .MLeather24 {
+	width: 14px;
+	height: 14px;
+}
+
+
+DIV+TABLE .MLeather12, DIV+TABLE .MBrights, DIV+TABLE .MFeather, DIV+TABLE .MPet1, DIV+TABLE .MPet2, DIV+TABLE .MPet3, DIV+TABLE .MPet4, DIV+TABLE .MPet5 {
+	width: 16px;
+	height: 16px;
+}
+
+DIV+TABLE .MLongFJ {
+	width: 36px;
+	height: 36px;
+}
+
+TD {
+	vertical-align: top;
+}
